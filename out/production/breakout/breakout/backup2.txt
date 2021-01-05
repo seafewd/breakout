@@ -1,0 +1,404 @@
+package breakout.model;
+
+
+import java.util.*;
+
+/*
+ *  Overall all logic for the Breakout Game
+ *  Model class representing the full game
+ *  This class should use other objects delegate work.
+ *
+ *  NOTE: Nothing visual here
+ *
+ */
+public class Breakout {
+
+    public static final double GAME_WIDTH = 400;
+    public static final double GAME_HEIGHT = 400;
+    public static final double BALL_SPEED_FACTOR = 1.05; // Increase ball speed
+    public static final long SEC = 1_000_000_000;  // Nano seconds used by JavaFX
+
+    private Ball ball;
+    private Paddle paddle;
+    private List<Wall> walls;
+    private List<Brick> bricks;
+
+    private List<Brick> toRemove = new ArrayList<>();
+
+    private int nBricks = 20;
+    private int nBalls = 5;
+    int points;
+
+
+    enum Direction {XDIR, YDIR, SOMETHING, NOTHING}
+    enum Orientation {TOP, BOTTOM, RIGHT, LEFT, TOP_RIGHT, TOP_LEFT,  BOTTOM_RIGHT, BOTTOM_LEFT, NOTHING}
+
+    // TODO Constructor that accepts all objects needed for the model
+//    public Breakout(Ball ball, Paddle paddle, List<Wall> walls, List<Brick> bricks){
+//        this.ball = ball;
+//        this.paddle = paddle;
+//        this.walls = walls;
+//        this.bricks = bricks;
+//
+//    }
+
+    public Breakout(Ball ball, Paddle paddle, List<Brick> bricks){
+        this.ball = ball;
+        this.paddle = paddle;
+        this.bricks = bricks;
+    }
+
+    // --------  Game Logic -------------
+
+    private long timeForLastHit;         // To avoid multiple collisions
+
+    public void update(long now) {
+        ball.move();
+        paddle.move();
+
+        doWallCollision();
+        doBallPaddleCollision();
+        doBallBrickCollision();
+        // TODO  Main game loop, start functional decomposition from here
+    }
+
+    // ----- Helper methods--------------
+
+    // ----- Helper methods--------------
+    private void doWallCollision(){
+        if(checkWallCollision() == Direction.XDIR)
+            ball.flipxVelocity();
+        if(checkWallCollision() == Direction.YDIR)
+            ball.flipyVelocity();
+    }
+
+
+    Direction checkWallCollision(){
+        if(ball.getX() - ball.getRadius() < 0 || ball.getX() + ball.getRadius() > GAME_WIDTH)
+            return Direction.XDIR;
+
+        else if(ball.getY() - ball.getRadius() < 0 || ball.getY() + ball.getRadius() > GAME_HEIGHT)
+            return Direction.YDIR;
+
+        else
+            return Direction.NOTHING;
+    }
+
+    Direction checkPaddleCollision(){
+        return null;
+    }
+
+    private void doBallBrickCollision(){
+        for (Brick b : bricks) {
+
+            if(doInter(b) == Orientation.TOP){
+                points += b.getPoints();
+                ball.flipyVelocity();
+                toRemove.add(b);
+            }
+            if (doInter(b) == Orientation.LEFT){
+                points += b.getPoints();
+                ball.flipxVelocity();
+                toRemove.add(b);
+            }
+//
+//            if (ballIntersectsBrick(b) == Direction.YDIR){
+//                points += b.getPoints();
+//                ball.flipyVelocity();
+//                toRemove.add(b);
+//            }
+//
+//            if (ballIntersectsBrick(b) == Direction.XDIR){
+//                points += b.getPoints();
+//                ball.flipxVelocity();
+//                toRemove.add(b);
+//            }
+        }
+        bricks.removeAll(toRemove);
+        toRemove.clear();
+    }
+
+    // Used for functional decomposition
+    private void doBallPaddleCollision(){
+
+        if(doInter(paddle) == Orientation.TOP){
+            ball.flipyVelocity();
+        }
+
+        else if(doInter(paddle) == Orientation.LEFT){
+            ball.flipxVelocity();
+        }
+
+//        Orientation ori = sideOf(paddle, null);
+//
+//
+//        if(ori == Orientation.TOP_LEFT || ori == Orientation.TOP_RIGHT || ori == Orientation.BOTTOM_LEFT || ori == Orientation.BOTTOM_RIGHT)
+//            ball.flipx Velocity();
+//        if(ori == Orientation.RIGHT || ori == Orientation.LEFT)
+//            ball.flipxVelocity();
+//        if(ori == Orientation.TOP || ori == Orientation.BOTTOM)
+//            ball.flipyVelocity();
+
+
+//        if(intersects(paddle, null))
+//
+//        if (ballIntersectsPaddle(paddle, null) == Direction.YDIR){
+//            ball.flipyVelocity();
+//        }
+//
+//        else if (ballIntersectsPaddle(paddle, null) == Direction.XDIR){
+//            ball.flipxVelocity();
+//        }
+        // TODO edges of rect
+    }
+
+//    TODO For both paddle and brick, use abstract class or instance?
+//    public boolean ballIntersectsRectangle(Object other) {
+//        Object rectangle = new Object();
+//        if(other instanceof Paddle)
+//            rectangle = (Paddle)other;
+//        else
+//            rectangle = (Brick) other;
+//
+//        boolean above = rectangle.getMaxY() < ball.getY();
+//        boolean below = rectangle.getY() > ball.getY() + ball.getHeight();
+//        boolean leftOf = rectangle.getMaxX() < ball.getX();
+//        boolean rightOf = rectangle.getX() > ball.getX() + ball.getWidth();
+//        return !(above || below || leftOf || rightOf);
+//    }
+
+//    public Orientation sideOf(Paddle paddle, Brick brick){
+//
+//        IPositionable other;
+//        if(paddle != null)
+//            other = paddle;
+//        else
+//            other = brick;
+//
+//        boolean above = other.getMaxY() < ball.getY();
+//        boolean below = other.getY() > ball.getY() + ball.getHeight();
+//        boolean leftOf = other.getMaxX() < ball.getX();
+//        boolean rightOf = other.getX() > ball.getX() + ball.getWidth();
+//
+//        boolean intersects = !(above || below || leftOf || rightOf);
+//
+//        double bx = ball.getX() + ball.getRadius();
+//        double by = ball.getY() + ball.getRadius();
+//        double rad = ball.getRadius();
+//
+//        boolean centerOfBallAbove = other.getMaxY() < by;
+//        boolean centerOfBallBelow = other.getY() > by + rad;
+//        boolean centerOfBallLeft = other.getMaxX() < bx;
+//        boolean centerOfBallRight = other.getX() > bx + rad;
+//
+//        // Vertex collision
+//        boolean topVertex = !(centerOfBallRight || centerOfBallLeft || centerOfBallBelow);
+//        boolean bottomVertex = !(centerOfBallRight || centerOfBallLeft || centerOfBallAbove);
+//        boolean rightVertex = !(centerOfBallLeft || centerOfBallAbove || centerOfBallBelow);
+//        boolean leftVertex = !(centerOfBallRight || centerOfBallAbove || centerOfBallBelow);
+//
+//        // Corner collision
+//        boolean topRightCorner = centerOfBallRight && centerOfBallAbove;
+//        boolean topLeftCorner = centerOfBallLeft && centerOfBallAbove;
+//        boolean bottomRightCorner = centerOfBallRight && centerOfBallBelow;
+//        boolean bottomLeftCorner = centerOfBallLeft && centerOfBallBelow;
+//
+//        // Verticies
+//        if(topVertex && intersects)
+//            return Orientation.TOP;
+//        else if(bottomVertex && intersects)
+//            return Orientation.BOTTOM;
+//        else if(rightVertex && intersects)
+//            return Orientation.RIGHT;
+//        else if(leftVertex && intersects)
+//            return Orientation.LEFT;
+//
+//        // Corners
+//        else if(topRightCorner && intersects)
+//            return Orientation.TOP_RIGHT;
+//        else if(topLeftCorner  && intersects)
+//            return Orientation.TOP_LEFT;
+//        else if(bottomRightCorner  && intersects)
+//            return Orientation.BOTTOM_RIGHT;
+//        else if(bottomLeftCorner  && intersects)
+//            return Orientation.BOTTOM_LEFT;
+//
+//        return Orientation.NOTHING;
+//    }
+
+    private double nearestXOnRectangle(IPositionable rect){
+
+        if(ball.getX() > rect.getMaxX())
+            return rect.getMaxX();
+
+        else if(ball.getX() < rect.getX())
+            return rect.getX();
+
+        else
+            return ball.getX();
+    }
+
+
+    private double nearestYOnRectangle(IPositionable rect){
+
+        if(ball.getY() > rect.getMaxY())
+            return rect.getMaxY();
+
+        else if(ball.getY() < rect.getY())
+            return rect.getY();
+
+        else
+            return ball.getY();
+    }
+
+    private Orientation doInter(IPositionable other){
+
+        boolean above = other.getMaxY() < ball.getY();
+        boolean below = other.getY() > ball.getY();
+        boolean leftOf = other.getMaxX() < ball.getX();
+        boolean rightOf = other.getX() > ball.getX();
+
+        double d = distance(ball.getX(), ball.getY(), nearestXOnRectangle(other), nearestYOnRectangle(other));
+
+        boolean intersects = d < ball.getRadius();
+
+        // Corners
+        if(above && leftOf && intersects)
+            return Orientation.TOP_LEFT;
+        else if(above && rightOf && intersects)
+            return Orientation.TOP_RIGHT;
+        else if(below && leftOf && intersects)
+            return Orientation.BOTTOM_LEFT;
+        else if(below && leftOf && intersects)
+            return Orientation.BOTTOM_RIGHT;
+
+        // Vertices
+        else if(intersects && (above || below)) // only need one
+            return Orientation.TOP;
+        else if(intersects && (leftOf || rightOf)) // only need one
+            return Orientation.LEFT;
+
+        else
+            return Orientation.NOTHING;
+    }
+
+    private boolean inter(double dist){
+        return ball.getRadius() < dist;
+    }
+
+
+
+    public boolean intersects(Paddle paddle, Brick brick) {
+
+        IPositionable other;
+        if(paddle != null)
+            other = paddle;
+        else
+            other = brick;
+
+        boolean above = other.getMaxY() < ball.getY();
+        boolean below = other.getY() > ball.getY() + ball.getHeight();
+        boolean leftOf = other.getMaxX() < ball.getX();
+        boolean rightOf = other.getX() > ball.getX() + ball.getWidth();
+
+        return !(above || below || leftOf || rightOf);
+    }
+
+    // TODO FOR COLLISION: Edges
+    //  -4 more bools for edges
+    //  - separate x and y direction for sideways collision
+
+    public Direction ballIntersectsPaddle(Paddle paddle, Brick brick) {
+
+        IPositionable other;
+        if(paddle != null)
+            other = paddle;
+        else
+            other = brick;
+
+        boolean above = other.getMaxY() < ball.getY();
+        boolean below = other.getY() > ball.getY() + ball.getHeight();
+        boolean leftOf = other.getMaxX() < ball.getX();
+        boolean rightOf = other.getX() > ball.getX() + ball.getWidth();
+        boolean intercepts = !(above || below || leftOf || rightOf);
+
+        boolean topVertex = !(rightOf || leftOf || below);
+        boolean bottomVertex = !(rightOf || leftOf || above);
+        boolean rightVertex = !(leftOf || above || below);
+        boolean leftVertex = !(rightOf || above || below);
+
+
+            return Direction.NOTHING;
+    }
+
+    public Direction ballIntersectsBrick(Brick other) {
+        // px--px+w < bx
+        // bx--bx+r < px
+        boolean above = other.getMaxY() < ball.getY();
+        boolean below = other.getY() > ball.getY() + ball.getHeight();
+        boolean leftOf = other.getMaxX() < ball.getX();
+        boolean rightOf = other.getX() > ball.getX() + ball.getWidth();
+        boolean intercepts = !(above || below || leftOf || rightOf);
+
+        boolean topCollision = !(rightOf || leftOf || below) && intercepts;
+        boolean bottomCollision = !(rightOf || leftOf || above) && intercepts;
+        boolean rightCollision = !(leftOf || above || below) && intercepts;
+        boolean leftCollision = !(rightOf || above || below) && intercepts;
+
+
+        if(topCollision || bottomCollision)
+            return Direction.YDIR;
+        if(rightCollision || leftCollision)
+            return Direction.XDIR;
+        else
+            return Direction.NOTHING;
+    }
+
+    private double distance(double ballX, double ballY, double onRectX, double onRectY){
+        double a = ballX - onRectX;
+        double b = ballY - onRectY;
+        return Math.sqrt(a*a + b*b);
+    }
+
+    private boolean distanceDiff(double ballPos, double rectPos){
+        double distance = Math.abs(ballPos - rectPos); // Distance from ball position to to nearest point on rect
+
+        if(distance - ball.getRadius() > 0)
+            return false;
+        else
+            return true;
+    }
+
+
+    // Used for functional decomposition
+
+
+
+    // --- Used by GUI  ------------------------
+
+    public void setPaddleVelocity(double velocity){
+        paddle.setVelocity(velocity);
+        //paddle.move();
+    }
+
+    public List<IPositionable> getPositionables() {
+        List<IPositionable> list = new ArrayList();
+        list.add(ball);
+        list.add(paddle);
+        //list.addAll(walls);
+        list.addAll(bricks);
+        return list;  // TODO return all objects to be rendered by GUI
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public int getnBalls() {
+        return nBalls;
+    }
+
+
+
+
+}

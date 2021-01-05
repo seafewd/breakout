@@ -1,0 +1,108 @@
+*** Assignment 3, Breakout ***
+
+We're going to do a version of the Breakout computer game see:
+- https://en.wikipedia.org/wiki/Breakout
+- https://www.youtube.com/watch?v=Up-a5x3coC0
+- See screenshot.png for a view of our game.
+
+To run the program, run the BreakoutGUI file (logic will not work for now ...).
+
+If new to programming you should have done the exercises
+- week5: 1-2
+- week6: 1-2
+
+Requirements
+-----------
+Game should look like screenshot.png or better.
+
+- Should be possible to start and stop the game (menu)
+- Should be possible to move paddle with right and left arrow keys (paddle not leaving the window)
+- Initially and if ball disappears from screen, a new ball, with a random speed and random (sensible) direction
+  shows up at center of screen. There should be a maximum number of balls.
+- Balls should bounce similar to original.
+- When a brick is hit it should disappear.
+- Bricks should have points, when brick hit, player (no class for) get the points.
+
+Optional requirements
+--------------------
+- Implement "rules", when is game over when win? when loose?
+- Make ball increase (randomly change) speed and/or direction
+- Add levels (the Level menu doesn't do anything right now)
+- Add a high score list (need file handling)
+- Add any twist.
+
+Directory layout
+----------------
+The application is divided over a few directories
+
+    - assets, will hold images and sounds used.
+    - src/breakout
+        - event/: Classes to handle events sent *from model to GUI*. See comments in EventBus
+        - model/: The OO model classes (the game data and logic)
+        - view/: The visible parts of the program, sound and the event handling
+                 *from GUI to model*
+
+The Object model
+------------
+See also Lab3 theory on course page.
+
+- The model has no look, it's just data and logic. Forbidden to put any
+  kind of "look"-data into model.
+- The overall game is represented by the Breakout class. Breakout class handles
+  the over all game logic (asking other objects to help). The main method is update(long now).
+- Other classes for the model are: Ball, Paddle, Wall and Brick.
+
+The GUI
+--------
+This is a graphical event driven JavaFX program. All graphics and event
+handling code is in BreakoutGUI and BreakoutMenu files.
+- The GUI has no game logic what so ever, it's just the look and the events
+  (from GUI to model and from model to GUI)
+- BreakoutGUI has a reference to a single Breakout object (the only model reference allowed).
+- Class Assets handles mappings of objects and events to images and sounds.
+- NOTE: Anything you intend to draw on screen must implement interface IPositionable
+- NOTE: y-axis is pointing down when rendering! A standard for all computer graphics.
+
+Tips:
+-----
+- Use upper left corner as position, x and y. Will simplify.
+- Use dx, dy for speed. When dx = dy = 0 object is idle.
+- Use paper and pen to continuously make/update sketches. It's
+  not possible to keep the full application in your head.
+
+Workflow
+--------
+Inspect everything.
+- See //TODO comments for where to code
+- Some classes are finished, see comments in code (= "Nothing to do here").
+
+1. Add some sensible instance variables in classes (this is trial and error).
+
+2. In BreakoutGUI > newGame(). Try to build the model. Pass in dependencies of other object using
+   constructors. Add constructors as needed. Debug method to inspect the model.
+
+3. When model seems ok, make a functional decomposition sketch of method update() in Breakout class
+   (the game loop). When sketch seems reasonable (trial and error), try to localize the methods
+   to the classes that has the data needed (or most of the data needed). Add parameters to methods if
+   some data is missing (if too many parameters, possibly wrong class, relocate).
+
+4. Try to make to ball appear on screen. GUI most be able to call getPositionables() in Breakout class
+   to be able to render images for the objects.
+
+5. Refactor. Any redundant code should be moved to abstract base classes. Any useful method that most (all)
+   object may need? Put in base class.
+
+6. Start with collection detection. First walls, then bricks. Any test may be written in class Test (in folder
+   test/breakout). To avoid multiple collisions use the time supplied by JavaFX (parameter now in update()).
+
+7. Make it possible to move the paddle. The keyPressed/Released methods in BreakoutGUI should call the
+   breakout instance to modify the paddle speed (and direction i.e. speed is +, 0 , -). Add methods as needed.
+
+8. When it's possible to move the paddel, add collision detection for paddle.
+
+9. Add event handling from model to GUI, using the EventBus. If a collision occurs in, model should send an event
+   to inform GUI to play a sound, see onModelEvent in BreakoutGUI.
+
+10. (Optional) See optional requirements.
+
+
