@@ -55,15 +55,20 @@ public class Breakout {
         doBallBrickCollision();
 
         // check if ball out of y position bounds
+        checkBallOutOfBounds(ball);
+    }
+
+    private Ball checkBallOutOfBounds(Ball ball) {
         if (ball.getY() > GAME_HEIGHT)
             if (getnBalls() != 0) {
-                ball = new Ball();
+                    ball = new Ball();
                 nBalls--;
                 EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.LOSE_LIFE, ""));
             } else {
                 EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GAME_OVER, ""));
                 //BreakoutGUI.showGameOverScreen(this);
             }
+        return ball;
     }
 
     // ----- Helper methods--------------

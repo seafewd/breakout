@@ -9,8 +9,8 @@ import static breakout.model.Breakout.GAME_WIDTH;
  */
 public class Paddle implements IPositionable{
 
-    public static final double PADDLE_WIDTH = 50;  // Default values, use in constructors, not directly
-    public static final double PADDLE_HEIGHT = 20;
+    public static final double PADDLE_WIDTH = 60;  // Default values, use in constructors, not directly
+    public static final double PADDLE_HEIGHT = 10;
 
     public static final double PADDLE_SPEED = 3;
 

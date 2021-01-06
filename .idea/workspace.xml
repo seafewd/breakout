@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a65263f4-11ed-4ebf-8df8-3c710ee72e73" name="Default" comment="" />
+    <list default="true" id="a65263f4-11ed-4ebf-8df8-3c710ee72e73" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/sound/hellothere.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sound/oof.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sound/wow.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sound/yay.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/view/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/view/Assets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/breakout/model/Breakout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/Breakout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/breakout/model/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/Paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/breakout/view/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/view/Assets.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,7 +40,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UvKutyasWGp8BXsohmmV2wl7qB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -32,15 +61,15 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout\assets\sound" />
-      <recent name="$PROJECT_DIR$/assets/sound" />
-      <recent name="$PROJECT_DIR$/assets/img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3\breakout\assets\sound" />
       <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout\src" />
       <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout\assets\sound" />
+      <recent name="$PROJECT_DIR$/assets/sound" />
+      <recent name="$PROJECT_DIR$/assets/img" />
     </key>
   </component>
   <component name="RunManager">
@@ -66,13 +95,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -121,11 +152,23 @@
       <updated>1539160113667</updated>
       <workItem from="1609593225230" duration="3870000" />
       <workItem from="1609870959275" duration="4764000" />
+      <workItem from="1609939867095" duration="2303000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="402" y="197" width="1092" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609871032205">
@@ -136,29 +179,29 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="654" y="284" key="FileChooserDialogImpl/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609891033134" />
-    <state width="1785" height="257" key="GridCell.Tab.0.bottom" timestamp="1609892481646">
+    <state width="1785" height="257" key="GridCell.Tab.0.bottom" timestamp="1609945915512">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892481646" />
-    <state width="1785" height="257" key="GridCell.Tab.0.center" timestamp="1609892481646">
+    <state width="1785" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609945915512" />
+    <state width="1785" height="257" key="GridCell.Tab.0.center" timestamp="1609945915512">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892481646" />
-    <state width="1785" height="257" key="GridCell.Tab.0.left" timestamp="1609892481645">
+    <state width="1785" height="257" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609945915512" />
+    <state width="1785" height="257" key="GridCell.Tab.0.left" timestamp="1609945915511">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892481645" />
-    <state width="1785" height="257" key="GridCell.Tab.0.right" timestamp="1609892481646">
+    <state width="1785" height="257" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609945915511" />
+    <state width="1785" height="257" key="GridCell.Tab.0.right" timestamp="1609945915512">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892481646" />
+    <state width="1785" height="257" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609945915512" />
     <state x="428" y="117" key="SettingsEditor" timestamp="1609594491876">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="428" y="117" key="SettingsEditor/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609594491876" />
-    <state x="656" y="276" width="585" height="534" key="find.popup" timestamp="1609892141971">
+    <state x="656" y="276" width="585" height="534" key="find.popup" timestamp="1609945572418">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="656" y="276" width="585" height="534" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892141971" />
+    <state x="656" y="276" width="585" height="534" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609945572418" />
   </component>
 </project>
