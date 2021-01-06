@@ -28,7 +28,7 @@ public class Ball implements IPositionable{
     public Ball(double xPosition, double yPosition, double xVelocity, double yVelocity, double radius){
         this.xPosition = xPosition;
         this.yPosition = yPosition;
-        this.xVelocity = xVelocity;
+        this.xVelocity = Breakout.randomInteger(-2, 2);;
         this.yVelocity = yVelocity;
         this.radius = radius;
     }
@@ -37,7 +37,7 @@ public class Ball implements IPositionable{
     public Ball(double xPosition, double yPosition){
         this.xPosition = xPosition;
         this.yPosition = yPosition;
-        xVelocity = defaultxVelocity;
+        xVelocity = Breakout.randomInteger(-2, 2);
         yVelocity = defaultyVelocity;
         radius = defaultRadius;
     }
@@ -46,7 +46,7 @@ public class Ball implements IPositionable{
     public Ball(){
         xPosition = defaultxPosition;
         yPosition = defaultyPosition;
-        xVelocity = defaultxVelocity;
+        xVelocity = Breakout.randomInteger(-2, 2);;
         yVelocity = defaultyVelocity;
         radius = defaultRadius;
     }

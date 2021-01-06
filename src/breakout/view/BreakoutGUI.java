@@ -104,6 +104,7 @@ public class BreakoutGUI extends Application implements IEventHandler {
         // Start game
         timer.start();
         running = true;
+        EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.NEW_GAME, ""));
     }
 
     private void killGame() {
@@ -111,6 +112,7 @@ public class BreakoutGUI extends Application implements IEventHandler {
         menu.fixMenusKillGame();
         renderSplash();
         running = false;
+
     }
 
     // ---------- Helper to build model ------------
@@ -174,11 +176,21 @@ public class BreakoutGUI extends Application implements IEventHandler {
     @Override
     public void onModelEvent(ModelEvent evt) {
         if (evt.type == ModelEvent.Type.BALL_HIT_PADDLE) {
-            assets.ballHitPaddle.setVolume(0.1);
+            assets.ballHitPaddle.setVolume(0.3);
             assets.ballHitPaddle.play();
         } else if (evt.type == ModelEvent.Type.BALL_HIT_BRICK) {
-            assets.ballHitBrick.setVolume(0.1);
+            assets.ballHitBrick.setVolume(0.3);
             assets.ballHitBrick.play();
+        } else if (evt.type == ModelEvent.Type.GAME_OVER) {
+            assets.gameOver.setVolume(0.3);
+            assets.gameOver.play();
+            killGame();
+        } else if (evt.type == ModelEvent.Type.NEW_GAME) {
+            assets.newGame.setVolume(0.8);
+            assets.newGame.play();
+        } else if (evt.type == ModelEvent.Type.LOSE_LIFE) {
+            assets.loseLife.setVolume(0.3);
+            assets.loseLife.play();
         }
     }
 

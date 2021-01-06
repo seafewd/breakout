@@ -12,7 +12,10 @@ public class ModelEvent {
         BALL_HIT_PADDLE,
         BALL_HIT_WALL,
         BALL_HIT_BRICK,
-        NEW_BALL
+        NEW_BALL,
+        GAME_OVER,
+        NEW_GAME,
+        LOSE_LIFE
     }
 
     public final ModelEvent.Type type;

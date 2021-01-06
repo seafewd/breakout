@@ -3,6 +3,7 @@ package breakout.model;
 
 import breakout.event.EventBus;
 import breakout.event.ModelEvent;
+import breakout.view.BreakoutGUI;
 
 import java.util.*;
 
@@ -52,15 +53,32 @@ public class Breakout {
         doWallCollision();
         doBallPaddleCollision();
         doBallBrickCollision();
-        // TODO  Main game loop, start functional decomposition from here
+
+        // check if ball out of y position bounds
+        if (ball.getY() > GAME_HEIGHT)
+            if (getnBalls() != 0) {
+                ball = new Ball();
+                nBalls--;
+                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.LOSE_LIFE, ""));
+            } else {
+                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GAME_OVER, ""));
+                //BreakoutGUI.showGameOverScreen(this);
+            }
     }
 
     // ----- Helper methods--------------
     private void doWallCollision(){
         if(ball.getX() < 0 || ball.getMaxX() > GAME_WIDTH)
             ball.flipxVelocity();
-        if(ball.getY() < 0 || ball.getMaxY() > GAME_HEIGHT)
+        if(ball.getY() < 0) {
             ball.flipyVelocity();
+        }
+    }
+
+    // Used for functional decomposition
+    public static int randomInteger(int min, int max) {
+        Random gen = new Random(System.currentTimeMillis());
+        return gen.nextInt((max - min) + 1) + min;
     }
 
     private void doBallBrickCollision(){

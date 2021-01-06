@@ -25,21 +25,22 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/sound" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../old/lab3_a_old/breakout" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15429688" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout\src" />
-      <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout\assets\sound" />
       <recent name="$PROJECT_DIR$/assets/sound" />
       <recent name="$PROJECT_DIR$/assets/img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3\breakout\assets\sound" />
+      <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout\src" />
+      <recent name="C:\Users\Alexander\Sync\Documents\DV@GU\imperative_programming\labs\lab3_r\breakout" />
     </key>
   </component>
   <component name="RunManager">
@@ -65,15 +66,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -133,33 +132,33 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="402" y="197" width="1092" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609871032205" />
-    <state x="654" y="284" key="FileChooserDialogImpl" timestamp="1609594402873">
+    <state x="654" y="284" key="FileChooserDialogImpl" timestamp="1609891033134">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="654" y="284" key="FileChooserDialogImpl/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609594402873" />
-    <state width="1785" height="257" key="GridCell.Tab.0.bottom" timestamp="1609890172306">
+    <state x="654" y="284" key="FileChooserDialogImpl/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609891033134" />
+    <state width="1785" height="257" key="GridCell.Tab.0.bottom" timestamp="1609892481646">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609890172306" />
-    <state width="1785" height="257" key="GridCell.Tab.0.center" timestamp="1609890172305">
+    <state width="1785" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892481646" />
+    <state width="1785" height="257" key="GridCell.Tab.0.center" timestamp="1609892481646">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609890172305" />
-    <state width="1785" height="257" key="GridCell.Tab.0.left" timestamp="1609890172305">
+    <state width="1785" height="257" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892481646" />
+    <state width="1785" height="257" key="GridCell.Tab.0.left" timestamp="1609892481645">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609890172305" />
-    <state width="1785" height="257" key="GridCell.Tab.0.right" timestamp="1609890172306">
+    <state width="1785" height="257" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892481645" />
+    <state width="1785" height="257" key="GridCell.Tab.0.right" timestamp="1609892481646">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609890172306" />
+    <state width="1785" height="257" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892481646" />
     <state x="428" y="117" key="SettingsEditor" timestamp="1609594491876">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="428" y="117" key="SettingsEditor/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609594491876" />
-    <state x="656" y="276" width="585" height="534" key="find.popup" timestamp="1609890166052">
+    <state x="656" y="276" width="585" height="534" key="find.popup" timestamp="1609892141971">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="656" y="276" width="585" height="534" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609890166052" />
+    <state x="656" y="276" width="585" height="534" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1609892141971" />
   </component>
 </project>
