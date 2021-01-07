@@ -3,7 +3,6 @@ package breakout.model;
 
 import breakout.event.EventBus;
 import breakout.event.ModelEvent;
-import breakout.view.BreakoutGUI;
 
 import java.util.*;
 
@@ -36,10 +35,11 @@ public class Breakout {
     enum Direction {UP, DOWN, RIGHT, LEFT, NOTHING}
 
 
-    public Breakout(Ball ball, Paddle paddle, List<Brick> bricks){
+    public Breakout(Ball ball, Paddle paddle, List<Brick> bricks, List<Wall> walls){
         this.ball = ball;
         this.paddle = paddle;
         this.bricks = bricks;
+        this.walls = walls;
     }
 
     // --------  Game Logic -------------
@@ -55,36 +55,69 @@ public class Breakout {
         doBallBrickCollision();
 
         // check if ball out of y position bounds
-        checkBallOutOfBounds(ball);
+        checkBallOut();
     }
 
-    private Ball checkBallOutOfBounds(Ball ball) {
-        if (ball.getY() > GAME_HEIGHT)
-            if (getnBalls() != 0) {
-                    ball = new Ball();
-                nBalls--;
-                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.LOSE_LIFE, ""));
-            } else {
-                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GAME_OVER, ""));
-                //BreakoutGUI.showGameOverScreen(this);
-            }
-        return ball;
-    }
 
-    // ----- Helper methods--------------
-    private void doWallCollision(){
-        if(ball.getX() < 0 || ball.getMaxX() > GAME_WIDTH)
-            ball.flipxVelocity();
-        if(ball.getY() < 0) {
-            ball.flipyVelocity();
-        }
-    }
+    /**
+     * Generate random int
+     * @param min
+     * @param max
+     * @return
+     */
 
     // Used for functional decomposition
     public static int randomInteger(int min, int max) {
         Random gen = new Random(System.currentTimeMillis());
         return gen.nextInt((max - min) + 1) + min;
     }
+
+    /**
+     * Handles when ball falls out, calls event lose life or game over
+     */
+
+    private void checkBallOut(){
+        if (ball.getY() >= GAME_HEIGHT) {
+            if (getnBalls() != 0) {
+                ball = new Ball();
+                nBalls--;
+                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.LOSE_LIFE, "life lost"));
+            } else {
+                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GAME_OVER, "game over"));
+            }
+        }
+    }
+
+
+    /**
+     * Flips direction of ball if it reaches the edges (top, left and right)
+     */
+
+    // ----- Helper methods--------------
+    private void doWallCollision(){
+        for (Wall w:walls
+             ) {
+            if(intersects(w) && w.getDir() == Wall.Dir.HORIZONTAL) {
+                ball.setyVelocity(Math.abs(ball.getyVelocity()));
+            }
+            else if(intersects(w) && w.getDir() == Wall.Dir.VERTICAL_LEFT) {
+                ball.setxVelocity(Math.abs(ball.getxVelocity()));
+            }
+            else if(intersects(w) && w.getDir() == Wall.Dir.VERTICAL_RIGHT) {
+                ball.setxVelocity(-Math.abs(ball.getxVelocity()));
+            }
+        }
+    }
+
+
+    /**
+     * Handles the brick collision. Eg. adds points, switches direction of ball and removes brick
+     *
+     * Checks for intersection and looks for the direction in which to send the ball, then changes direction
+     * of ball upon impact.
+     *
+     * -- (Could maybe be broken up inte smaller methods)
+     */
 
     private void doBallBrickCollision(){
         for (Brick b : bricks) {
@@ -116,6 +149,23 @@ public class Breakout {
     }
 
     /**
+     * Handles collision with paddle.
+     *
+     * Switches direction of ball -- If ball moves beyond half the height (size) of the paddle then it will move past
+     * and not bounce.
+     *
+     * Also trigger sounds
+     */
+
+    private void doBallPaddleCollision(){
+        if(intersects(paddle) && ball.getMaxY() < paddle.getY() + paddle.getHeight()/2) {
+            ball.setyVelocity(-Math.abs(ball.getyVelocity()));
+            setBounceDirection(ball, paddle);
+            EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.BALL_HIT_PADDLE, ""));
+        }
+    }
+
+    /**
      * Set the direction of the ball when it bounces off the paddle
      * @param ball ball
      * @param paddle paddle
@@ -142,26 +192,16 @@ public class Breakout {
             ball.setxVelocity(1);
     }
 
-    private void doBallPaddleCollision(){
-        if(intersects(paddle) && ball.getMaxY() < paddle.getY() + paddle.getHeight()/2) {
-            ball.setyVelocity(-Math.abs(ball.getyVelocity()));
-            setBounceDirection(ball, paddle);
-            EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.BALL_HIT_PADDLE, ""));
-        }
 
-//        if(intersects(paddle) && getDirection(paddle) == Direction.UP){
-//            ball.setyVelocity(-Math.abs(ball.getyVelocity()));
-//        }
-//        else if(intersects(paddle) && getDirection(paddle) == Direction.DOWN){
-//            ball.setyVelocity(Math.abs(ball.getyVelocity()));
-//        }
-//        else if(intersects(paddle) && getDirection(paddle) == Direction.LEFT){
-//            ball.setxVelocity(-Math.abs(ball.getxVelocity()));
-//        }
-//        else if(intersects(paddle) && getDirection(paddle) == Direction.RIGHT){
-//            ball.setxVelocity(Math.abs(ball.getxVelocity()));
-//        }
-    }
+    /**
+     * Checks intersection with ball
+     *
+     * A nice way to think about the logic here is to just ask the question, when does it not intersect?
+     * Either the object is above, below, right or left. Then negate that.
+     *
+     * @param other The object to check against the ball
+     * @return True if intersect
+     */
 
     public boolean intersects(IPositionable other) {
 
@@ -173,6 +213,15 @@ public class Breakout {
         return !(above || below || leftOf || rightOf);
     }
 
+    /**
+     * This method is built this way to handle the corner to corner collision mainly
+     *
+     * If collision occures, in what direction should the object bounce?
+     *
+     * @param rect Object to check against
+     * @return Direction of to move the ball
+     */
+
     private Direction getDirection(IPositionable rect){
 
         // Center positions
@@ -183,9 +232,7 @@ public class Breakout {
 
         // Ball relative to -
         boolean above = by < ry;
-        boolean below = by > ry;
         boolean leftOf = bx < rx;
-        boolean rightOf = bx > rx;
 
         if(Math.abs(rx-bx) < Math.abs(ry-by)){ // distance from bx to rx is less than ry to by, then we have a vertical bounce
             if(above)
@@ -201,11 +248,10 @@ public class Breakout {
         }
     }
 
-
-    // Used for functional decomposition
-
-
-
+    /**
+     * Sets velocity of paddle
+     * @param velocity speed / dx
+     */
     // --- Used by GUI  ------------------------
 
     public void setPaddleVelocity(double velocity){
@@ -213,11 +259,16 @@ public class Breakout {
         //paddle.move();
     }
 
+    /**
+     * Get list of placeable objects
+     * @return List of placeable objects like ball, paddle, walls and bricks
+     */
+
     public List<IPositionable> getPositionables() {
         List<IPositionable> list = new ArrayList();
         list.add(ball);
         list.add(paddle);
-        //list.addAll(walls);
+        list.addAll(walls);
         list.addAll(bricks);
         return list;  // TODO return all objects to be rendered by GUI
     }

@@ -30,6 +30,8 @@ import static breakout.model.Breakout.GAME_WIDTH;
 import static breakout.model.Brick.BRICK_HEIGHT;
 import static breakout.model.Brick.BRICK_WIDTH;
 import static breakout.model.Paddle.PADDLE_SPEED;
+import static breakout.model.Wall.Dir.*;
+import static breakout.model.Wall.WALL_THICKNESS;
 import static java.lang.System.*;
 
 /*
@@ -91,15 +93,12 @@ public class BreakoutGUI extends Application implements IEventHandler {
         Paddle paddle = getPeddle();
         List<Wall> walls = getWalls();
         List<Brick> bricks = getBricks(6, 16);
-        //List<Brick> bricks = getBricks(3, 15);
-        breakout = new Breakout(ball, paddle, bricks);
+
+        breakout = new Breakout(ball, paddle, bricks, walls);
 
         // --- Build the model -----
-        // TODO Build the model (also: see methods below)
 
-        //bindBall(ball);
-
-        bindBricks(bricks);  // TODO
+        bindBricks(bricks);
 
         // Start game
         timer.start();
@@ -119,9 +118,9 @@ public class BreakoutGUI extends Application implements IEventHandler {
 
     // Create all walls
     private List<Wall> getWalls() {
-        Wall left = null;             // TODO
-        Wall top = null;               //TODO
-        Wall right = null;             //TODO
+        Wall left = new Wall(-WALL_THICKNESS, WALL_THICKNESS, VERTICAL_LEFT);
+        Wall top = new Wall(0, 0, HORIZONTAL);  ;
+        Wall right = new Wall(GAME_WIDTH, WALL_THICKNESS, VERTICAL_RIGHT);  ;
         return Arrays.asList(left, top, right);
     }
 
@@ -134,7 +133,7 @@ public class BreakoutGUI extends Application implements IEventHandler {
         int points = 300;
         for (int y = 10 * offset; y < nRows * (bh + offset); y += bh + offset) {
             for (int x = offset - 2; x < nCols * (bw + offset); x += bw + offset) {
-                Brick b = new Brick(x, y, points);     // TODO
+                Brick b = new Brick(x, y, points);
                 bricks.add(b);
             }
             points -= 100;
@@ -143,7 +142,7 @@ public class BreakoutGUI extends Application implements IEventHandler {
     }
 
     // Bind bricks to images
-    private void bindBricks(List<Brick> bricks) {   // TODO
+    private void bindBricks(List<Brick> bricks) {
         for (Brick b : bricks) {
             int points = b.getPoints();
             switch ( points ) {
@@ -232,12 +231,6 @@ public class BreakoutGUI extends Application implements IEventHandler {
         fg.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);    // Clear everything
         List<IPositionable> positionables = breakout.getPositionables();
         IPositionable d;
-//        d = positionables.get(0);
-//        if (renderDebug) {
-//            fg.strokeOval(d.getX()-d.getWidth()/2, d.getY()-d.getHeight()/2, d.getWidth(), d.getHeight());
-//        } else {
-//            fg.drawImage(assets.get(d), d.getX() - d.getWidth()/2, d.getY() - d.getHeight()/2, d.getWidth(), d.getHeight());
-//        }
 
         for (IPositionable positionable : positionables) {
             d = positionable;
@@ -248,7 +241,6 @@ public class BreakoutGUI extends Application implements IEventHandler {
             }
         }
 
-        // TODO This is now hardcoded with no rendering of sprite
         fg.setFill(assets.colorFgText);
         fg.setFont(Font.font(14));
         fg.fillText("Points: " + breakout.getPoints(), 10, GAME_HEIGHT - 5);

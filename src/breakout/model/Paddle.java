@@ -44,10 +44,6 @@ public class Paddle implements IPositionable{
         this.velocity = velocity;
     }
 
-    public void setPosition(double xPosition){
-        this.xPosition = xPosition;
-    }
-
     @Override
     public double getX() {
         return xPosition;
