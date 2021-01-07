@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a65263f4-11ed-4ebf-8df8-3c710ee72e73" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/model/Breakout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/model/Breakout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/model/Breakout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/Breakout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/view/BreakoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/view/BreakoutGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +143,7 @@
       <workItem from="1609870959275" duration="4764000" />
       <workItem from="1609939867095" duration="2896000" />
       <workItem from="1609984443876" duration="917000" />
-      <workItem from="1610024655816" duration="5240000" />
+      <workItem from="1610024655816" duration="5670000" />
     </task>
     <servers />
   </component>
@@ -166,22 +163,26 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1785" height="257" key="GridCell.Tab.0.bottom" timestamp="1610027688677">
+    <state x="439" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610042536745">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610027688677" />
-    <state width="1785" height="257" key="GridCell.Tab.0.center" timestamp="1610027688677">
+    <state x="439" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610042536745" />
+    <state width="1785" height="257" key="GridCell.Tab.0.bottom" timestamp="1610042126646">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610027688677" />
-    <state width="1785" height="257" key="GridCell.Tab.0.left" timestamp="1610027688677">
+    <state width="1785" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610042126646" />
+    <state width="1785" height="257" key="GridCell.Tab.0.center" timestamp="1610042126646">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610027688677" />
-    <state width="1785" height="257" key="GridCell.Tab.0.right" timestamp="1610027688677">
+    <state width="1785" height="257" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610042126646" />
+    <state width="1785" height="257" key="GridCell.Tab.0.left" timestamp="1610042126646">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1785" height="257" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610027688677" />
+    <state width="1785" height="257" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610042126646" />
+    <state width="1785" height="257" key="GridCell.Tab.0.right" timestamp="1610042126646">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1785" height="257" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610042126646" />
     <state x="673" y="313" width="585" height="534" key="find.popup" timestamp="1610039279769">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
