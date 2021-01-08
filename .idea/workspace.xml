@@ -20,24 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a65263f4-11ed-4ebf-8df8-3c710ee72e73" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/breakout/model/AbstractMoveable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/breakout/model/AbstractPositionable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/backup2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/backup2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/view/backup3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/view/backup3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/backup2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/backup2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/event/EventBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/event/EventBus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/event/IEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/event/IEventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/event/ModelEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/event/ModelEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/model/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/model/Ball.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/model/Breakout$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/model/Breakout$Direction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/model/Breakout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/model/Breakout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/model/Brick.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/model/Brick.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/model/Paddle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/model/Paddle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/model/Wall$Dir.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/model/Wall$Dir.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/model/Wall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/model/Wall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/view/BreakoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/breakout/breakout/view/BreakoutGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/breakout/breakout/view/backup3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/breakout/backup2.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/breakout/model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/Ball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/breakout/model/Breakout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/Breakout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/breakout/model/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/model/IPositionable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/IPositionable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/breakout/model/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/Paddle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/breakout/model/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/model/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/view/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/view/Assets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/breakout/view/BreakoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/view/BreakoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/view/BreakoutMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/view/BreakoutMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/breakout/view/backup3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/breakout/view/backup3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/breakout/view/backup3.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +48,13 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +71,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../old/lab3_a_old/breakout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../exercises/xerweek6" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15429688" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -92,13 +101,24 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="breakout.view.BreakoutGUI" />
       <module name="breakout" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;$APPLICATION_HOME_DIR$/plugins/javafx-sdk-11.0.2/lib&quot; --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,6 +170,7 @@
       <workItem from="1609939867095" duration="2896000" />
       <workItem from="1609984443876" duration="917000" />
       <workItem from="1610024655816" duration="6397000" />
+      <workItem from="1610097006438" duration="9003000" />
     </task>
     <servers />
   </component>
@@ -167,5 +188,43 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="440" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610097089606">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="440" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610097089606" />
+    <state x="771" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1610100818152">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="771" y="246" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610100818152" />
+    <state x="964" y="303" key="FileChooserDialogImpl" timestamp="1610101314232">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="964" y="303" key="FileChooserDialogImpl/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610101314232" />
+    <state width="1785" height="257" key="GridCell.Tab.0.bottom" timestamp="1610106169000">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1785" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610106169000" />
+    <state width="1785" height="257" key="GridCell.Tab.0.center" timestamp="1610106169000">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1785" height="257" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610106169000" />
+    <state width="1785" height="257" key="GridCell.Tab.0.left" timestamp="1610106169000">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1785" height="257" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610106169000" />
+    <state width="1785" height="257" key="GridCell.Tab.0.right" timestamp="1610106169000">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1785" height="257" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610106169000" />
+    <state x="680" y="254" width="585" height="534" key="find.popup" timestamp="1610105497085">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="680" y="254" width="585" height="534" key="find.popup/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610105497085" />
+    <state x="628" y="243" key="run.anything.popup" timestamp="1610103702681">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="628" y="243" key="run.anything.popup/0.0.1920.1050/-1920.0.1920.1050/-3840.0.1920.1050@0.0.1920.1050" timestamp="1610103702681" />
   </component>
 </project>

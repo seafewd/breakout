@@ -18,8 +18,6 @@ public class Breakout {
 
     public static final double GAME_WIDTH = 400;
     public static final double GAME_HEIGHT = 400;
-    public static final double BALL_SPEED_FACTOR = 1.05; // Increase ball speed
-    public static final long SEC = 1_000_000_000;  // Nano seconds used by JavaFX
 
     private Ball ball;
     private Paddle paddle;
@@ -32,7 +30,7 @@ public class Breakout {
     private int nBalls = 5;
     int points;
 
-    enum Direction {UP, DOWN, RIGHT, LEFT, NOTHING}
+    enum Direction {UP, DOWN, RIGHT, LEFT}
 
 
     public Breakout(Ball ball, Paddle paddle, List<Brick> bricks, List<Wall> walls){
@@ -137,6 +135,7 @@ public class Breakout {
                 points += b.getPoints();
                 toRemove.add(b);
                 EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.BALL_HIT_BRICK, ""));
+
             }
         }
         bricks.removeAll(toRemove);
@@ -250,7 +249,7 @@ public class Breakout {
     // --- Used by GUI  ------------------------
 
     public void setPaddleVelocity(double velocity){
-        paddle.setVelocity(velocity);
+        paddle.setxVelocity(velocity);
         //paddle.move();
     }
 

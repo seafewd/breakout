@@ -116,9 +116,9 @@ public class BreakoutGUI extends Application implements IEventHandler {
 
     // Create all walls
     private List<Wall> getWalls() {
-        Wall left = new Wall(-WALL_THICKNESS, WALL_THICKNESS, VERTICAL_LEFT);
-        Wall top = new Wall(0, 0, HORIZONTAL);  ;
-        Wall right = new Wall(GAME_WIDTH, WALL_THICKNESS, VERTICAL_RIGHT);  ;
+        Wall left = new Wall(-WALL_THICKNESS, 0, WALL_THICKNESS, GAME_HEIGHT, VERTICAL_LEFT);
+        Wall top = new Wall(0, -WALL_THICKNESS, GAME_WIDTH, WALL_THICKNESS, HORIZONTAL);
+        Wall right = new Wall(GAME_WIDTH, 0, WALL_THICKNESS, GAME_HEIGHT, VERTICAL_RIGHT);
         return Arrays.asList(left, top, right);
     }
 
