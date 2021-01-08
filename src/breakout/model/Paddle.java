@@ -11,7 +11,6 @@ public class Paddle implements IPositionable{
 
     public static final double PADDLE_WIDTH = 60;  // Default values, use in constructors, not directly
     public static final double PADDLE_HEIGHT = 10;
-
     public static final double PADDLE_SPEED = 3;
 
     private double xPosition;

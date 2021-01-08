@@ -7,7 +7,6 @@ import breakout.model.*;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -17,7 +16,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -90,7 +88,7 @@ public class BreakoutGUI extends Application implements IEventHandler {
 
         // order: ball, paddle, walls, bricks
         Ball ball = getBall();
-        Paddle paddle = getPeddle();
+        Paddle paddle = getPaddle();
         List<Wall> walls = getWalls();
         List<Brick> bricks = getBricks(6, 16);
 
@@ -165,7 +163,7 @@ public class BreakoutGUI extends Application implements IEventHandler {
         return new Ball();
     }
 
-    private Paddle getPeddle(){
+    private Paddle getPaddle(){
         return new Paddle(PADDLE_XPOSITION, PADDLE_YPOSITION);
     }
 

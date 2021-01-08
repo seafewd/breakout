@@ -95,8 +95,7 @@ public class Breakout {
 
     // ----- Helper methods--------------
     private void doWallCollision(){
-        for (Wall w:walls
-             ) {
+        for (Wall w:walls) {
             if(intersects(w) && w.getDir() == Wall.Dir.HORIZONTAL) {
                 ball.setyVelocity(Math.abs(ball.getyVelocity()));
             }
@@ -116,33 +115,29 @@ public class Breakout {
      * Checks for intersection and looks for the direction in which to send the ball, then changes direction
      * of ball upon impact.
      *
-     * -- (Could maybe be broken up inte smaller methods)
+     * -- (Could maybe be broken up into smaller methods)
      */
 
     private void doBallBrickCollision(){
         for (Brick b : bricks) {
             if(intersects(b) && getDirection(b) == Direction.UP){
-                points += b.getPoints();
-                toRemove.add(b);
                 ball.setyVelocity(-Math.abs(ball.getyVelocity()));
             }
             else if(intersects(b) && getDirection(b) == Direction.DOWN){
-                points += b.getPoints();
-                toRemove.add(b);
                 ball.setyVelocity(Math.abs(ball.getyVelocity()));
             }
             else if(intersects(b) && getDirection(b) == Direction.LEFT){
-                points += b.getPoints();
-                toRemove.add(b);
                 ball.setxVelocity(-Math.abs(ball.getxVelocity()));
             }
             else if(intersects(b) && getDirection(b) == Direction.RIGHT){
-                points += b.getPoints();
-                toRemove.add(b);
                 ball.setxVelocity(Math.abs(ball.getxVelocity()));
             }
-            if (intersects(b))
+
+            if (intersects(b)) {
+                points += b.getPoints();
+                toRemove.add(b);
                 EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.BALL_HIT_BRICK, ""));
+            }
         }
         bricks.removeAll(toRemove);
         toRemove.clear();
@@ -216,7 +211,7 @@ public class Breakout {
     /**
      * This method is built this way to handle the corner to corner collision mainly
      *
-     * If collision occures, in what direction should the object bounce?
+     * If collision occurs, in what direction should the object bounce?
      *
      * @param rect Object to check against
      * @return Direction of to move the ball
